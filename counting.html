@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="counting">
+      <h1>글자 수 세기</h1>
+      <input type="text" style="width: 500px; height: 300px" id="input" />
+      <p>공백 포함 글자 수: <span class="countAll"></span></p>
+      <p>공백 제외 글자 수: <span class="countJust"></span></p>
+    </div>
+    <script>
+      const countAll = document.querySelector(".countAll");
+      const countJust = document.querySelector(".countJust");
+      const text = document.querySelector("input");
+
+      function onKeyDown(event) {
+        let inputValue = "";
+        inputValue = event.target.value;
+        countAll.textContent = `${inputValue.length}`;
+        countJust.textContent = `${inputValue.replace(/(\s*)/g, "").length}`;
+      }
+      text.addEventListener("keydown", onKeyDown);
+    </script>
+  </body>
+</html>
